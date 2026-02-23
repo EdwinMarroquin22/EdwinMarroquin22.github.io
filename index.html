@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brim & Crown Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#c9a84c;--gl:#e8c97a;--b:#0a0a0a;--c:#f5f0e8;--fd:'Cormorant Garamond',serif;--fb:'Montserrat',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--b);color:var(--c);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;background:rgba(10,10,10,.97);border-bottom:1px solid rgba(201,168,76,.15);backdrop-filter:blur(10px)}
+.logo{font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--g);text-decoration:none;letter-spacing:.05em}
+.logo span{color:var(--c);font-style:italic;font-weight:300}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.65);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--g)}
+.nav-links .cta{background:var(--g);color:#000 !important;padding:9px 20px;opacity:1}
+.nav-links .cta:hover{background:var(--gl)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:1.5px;background:var(--c);transition:transform .3s,opacity .3s}
+.burger.on span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.drawer{display:none;position:fixed;inset:0;z-index:190;background:rgba(10,10,10,.98);flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.drawer.on{display:flex}
+.drawer a{font-family:var(--fd);font-size:2rem;font-weight:300;color:var(--c);text-decoration:none;transition:color .2s}
+.drawer a:hover{color:var(--g)}
+.drawer .dcta{font-family:var(--fb);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:var(--g);color:#000;padding:14px 36px;margin-top:8px}
+.btn{display:inline-block;font-family:var(--fb);font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:15px 34px;text-decoration:none;cursor:pointer;border:none;transition:background .2s,transform .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-g{background:var(--g);color:#000}
+.btn-g:hover{background:var(--gl)}
+.btn-o{background:transparent;color:var(--c);border:1px solid rgba(245,240,232,.3)}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+.sl{font-size:.58rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:16px}
+.st{font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--c);margin-bottom:22px}
+.st em{font-style:italic;color:var(--g)}
+.div{width:56px;height:1px;background:linear-gradient(to right,var(--g),transparent);margin-bottom:30px}
+.divc{margin:0 auto 30px}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.rev.on{opacity:1;transform:none}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 32px 90px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(201,168,76,.07),transparent 70%),linear-gradient(180deg,#0a0a0a,#0f0e0b)}
+.hline{width:1px;height:70px;background:linear-gradient(to bottom,transparent,var(--g),transparent);margin:0 auto 44px;position:relative;opacity:0;animation:fu .8s .3s forwards}
+.hbadge{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g);margin-bottom:24px;position:relative;opacity:0;animation:fu .8s .5s forwards}
+.htitle{font-family:var(--fd);font-size:clamp(3rem,8vw,6.5rem);font-weight:300;line-height:.95;margin-bottom:16px;position:relative;opacity:0;animation:fu .9s .6s forwards}
+.htitle em{font-style:italic;color:var(--g)}
+.hsub{font-family:var(--fd);font-size:clamp(1rem,2.5vw,1.5rem);font-style:italic;color:rgba(245,240,232,.45);margin-bottom:16px;position:relative;opacity:0;animation:fu .9s .75s forwards}
+.hdesc{max-width:500px;font-size:.78rem;line-height:1.9;color:rgba(245,240,232,.42);margin:0 auto 44px;position:relative;opacity:0;animation:fu .9s .9s forwards}
+.hbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;opacity:0;animation:fu .9s 1.05s forwards}
+.htrust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:70px;padding-top:36px;position:relative;opacity:0;animation:fu .9s 1.2s forwards}
+.htrust::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:70px;height:1px;background:linear-gradient(to right,transparent,var(--g),transparent)}
+.ti .tl{font-size:.55rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:3px}
+.ti .tv{font-family:var(--fd);font-size:.95rem;color:rgba(245,240,232,.45)}
+
+/* HOW */
+#how{padding:110px 60px;background:linear-gradient(180deg,#0a0a0a,#0d0c09)}
+#how .in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.steps{display:flex;flex-direction:column;gap:32px;margin-top:36px}
+.step{display:flex;gap:24px}
+.sn{font-family:var(--fd);font-size:2.8rem;font-weight:300;color:rgba(201,168,76,.14);line-height:1;min-width:44px;transition:color .3s}
+.step:hover .sn{color:rgba(201,168,76,.45)}
+.st2 h3{font-family:var(--fd);font-size:1.15rem;font-weight:400;color:var(--c);margin-bottom:6px}
+.st2 p{font-size:.76rem;line-height:1.8;color:rgba(245,240,232,.42)}
+.hbox{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.02));border:1px solid rgba(201,168,76,.12);padding:56px 36px;text-align:center;position:relative}
+.hbox::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(to right,transparent,var(--g),transparent)}
+.hbox .hi{font-family:var(--fd);font-size:4.5rem;font-weight:300;color:var(--g);opacity:.3;line-height:1;margin-bottom:20px}
+.hbox h3{font-family:var(--fd);font-size:1.7rem;font-weight:300;color:var(--c);margin-bottom:14px}
+.hbox p{font-size:.76rem;line-height:1.9;color:rgba(245,240,232,.42);max-width:280px;margin:0 auto 28px}
+
+/* SERVICES */
+#services{padding:110px 60px;background:#0d0c09}
+#services .in{max-width:1080px;margin:0 auto}
+#services .hdr{text-align:center;margin-bottom:64px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.08);margin-bottom:56px}
+.pc{background:#0a0a0a;padding:44px 32px;position:relative;transition:background .3s}
+.pc:hover{background:#0f0e0b}
+.pc.feat{background:linear-gradient(160deg,#111008,#0c0b07)}
+.pc.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--g),transparent)}
+.pbadge{font-size:.52rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#000;background:var(--g);padding:3px 11px;display:inline-block;margin-bottom:18px}
+.pbadge.out{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--g)}
+.pname{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--c);margin-bottom:4px}
+.ptag{font-size:.68rem;color:rgba(245,240,232,.38);margin-bottom:24px;line-height:1.6}
+.pprice{font-family:var(--fd);font-size:2.8rem;font-weight:300;color:var(--g);line-height:1;margin-bottom:4px}
+.pprice sup{font-size:1.1rem;vertical-align:super}
+.pprice sub{font-size:.9rem;color:rgba(201,168,76,.45)}
+.pdiv{height:1px;background:rgba(201,168,76,.1);margin:18px 0 24px}
+.pf{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.pf li{font-size:.72rem;color:rgba(245,240,232,.5);padding-left:16px;position:relative;line-height:1.5}
+.pf li::before{content:'—';position:absolute;left:0;color:var(--g);font-size:.6rem}
+.addons{margin-top:56px}
+.addons h3,.bundles h3{font-family:var(--fd);font-size:1.7rem;font-weight:300;color:var(--c);margin-bottom:28px;text-align:center}
+.agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(201,168,76,.08);margin-bottom:36px}
+.addon{background:#0a0a0a;padding:24px 20px;text-align:center}
+.addon .an{font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:7px}
+.addon .ap{font-family:var(--fd);font-size:1.4rem;font-weight:300;color:var(--g)}
+.bundles{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.02));border:1px solid rgba(201,168,76,.12);padding:44px}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bundle{text-align:center;padding:24px;border:1px solid rgba(201,168,76,.1);position:relative;transition:border-color .3s}
+.bundle:hover{border-color:rgba(201,168,76,.35)}
+.bundle.bv::before{content:'Best Value';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--g);color:#000;font-size:.52rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:2px 12px}
+.bundle .bh{font-family:var(--fd);font-size:2.3rem;font-weight:300;color:var(--c);line-height:1;margin-bottom:3px}
+.bundle .bl{font-size:.6rem;color:rgba(245,240,232,.38);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.bundle .bp{font-family:var(--fd);font-size:1.9rem;font-weight:300;color:var(--g)}
+
+/* GALLERY */
+#gallery{padding:110px 60px;background:#0a0a0a}
+#gallery .in{max-width:1080px;margin:0 auto}
+#gallery .hdr{text-align:center;margin-bottom:64px}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.08)}
+.gi{background:#0a0a0a;padding:28px 24px;transition:background .3s}
+.gi:hover{background:#0e0d0a}
+.bap{display:flex;gap:10px;margin-bottom:18px}
+.ba{flex:1;aspect-ratio:1;position:relative;overflow:hidden;border:1px solid rgba(201,168,76,.1)}
+.ba img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.ba:hover img{transform:scale(1.05)}
+.ba .bl2{position:absolute;bottom:0;left:0;right:0;font-size:.52rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--c);background:rgba(10,10,10,.7);backdrop-filter:blur(4px);padding:5px;text-align:center}
+.ba.before{filter:saturate(.5) brightness(.8)}
+.ba.after{border-color:rgba(201,168,76,.28)}
+.gi h4{font-family:var(--fd);font-size:1rem;font-weight:400;color:var(--c);margin-bottom:6px}
+.gi p{font-size:.68rem;color:rgba(245,240,232,.38);line-height:1.7}
+
+/* ABOUT */
+#about{padding:110px 60px;background:#0d0c09}
+#about .in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:90px;align-items:center}
+.abox{background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(201,168,76,.02));border:1px solid rgba(201,168,76,.14);padding:56px 44px;position:relative}
+.abox::after{content:'';position:absolute;bottom:-14px;right:-14px;left:14px;top:14px;border:1px solid rgba(201,168,76,.05);z-index:-1}
+.aq{font-family:var(--fd);font-size:1.8rem;font-weight:300;font-style:italic;color:var(--c);line-height:1.5;margin-bottom:20px}
+.aq em{color:var(--g);font-style:normal}
+.aa{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.3)}
+.at p{font-size:.8rem;line-height:2;color:rgba(245,240,232,.52);margin-bottom:22px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,168,76,.08);margin-top:36px}
+.pillar{background:#0d0c09;padding:20px 18px}
+.pillar h4{font-family:var(--fd);font-size:.95rem;font-weight:400;color:var(--g);margin-bottom:5px}
+.pillar p{font-size:.66rem;color:rgba(245,240,232,.42);line-height:1.6}
+
+/* FAQ */
+#faq{padding:110px 60px;background:#0a0a0a}
+#faq .in{max-width:760px;margin:0 auto}
+#faq .hdr{text-align:center;margin-bottom:56px}
+.flist{display:flex;flex-direction:column;gap:2px;background:rgba(201,168,76,.08)}
+.fi{background:#0a0a0a;overflow:hidden}
+.fq{padding:22px 28px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--fd);font-size:1rem;font-weight:400;color:var(--c);user-select:none;transition:background .2s}
+.fq:hover{background:#0d0c09}
+.fp{font-size:1.3rem;color:var(--g);transition:transform .3s;flex-shrink:0}
+.fi.on .fp{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;font-size:.76rem;line-height:1.9;color:rgba(245,240,232,.42);padding:0 28px}
+.fi.on .fa{max-height:180px;padding:0 28px 22px}
+
+/* CONTACT */
+#contact{padding:120px 60px;background:#0d0c09;text-align:center;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(201,168,76,.05),transparent 70%)}
+#contact .in{position:relative;max-width:680px;margin:0 auto}
+.cdesc{font-size:.8rem;line-height:1.9;color:rgba(245,240,232,.42);margin-bottom:44px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,168,76,.08);max-width:580px;margin:0 auto 44px}
+.co{background:#0d0c09;padding:36px 28px;transition:background .3s}
+.co:hover{background:#111009}
+.coi{font-family:var(--fd);font-size:2rem;color:var(--g);opacity:.4;margin-bottom:10px}
+.co h4{font-family:var(--fd);font-size:1.05rem;font-weight:400;color:var(--c);margin-bottom:7px}
+.co p{font-size:.68rem;color:rgba(245,240,232,.38);line-height:1.6;margin-bottom:18px}
+.cnote{font-size:.68rem;color:rgba(245,240,232,.28)}
+.cnote a{color:var(--g);text-decoration:none}
+
+/* FOOTER */
+footer{background:#060605;padding:56px 60px;border-top:1px solid rgba(201,168,76,.1)}
+.ftop{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px}
+.flogo{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--g);letter-spacing:.05em}
+.flogo span{color:var(--c);font-weight:300;font-style:italic}
+.flinks{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.flinks a{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.3);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--g)}
+.fcopy{font-size:.62rem;color:rgba(245,240,232,.18);letter-spacing:.08em}
+.fbot{max-width:1080px;margin:28px auto 0;padding-top:24px;border-top:1px solid rgba(201,168,76,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.fpol{display:flex;gap:20px;list-style:none}
+.fpol a{font-size:.58rem;color:rgba(245,240,232,.18);text-decoration:none;transition:color .2s}
+.fpol a:hover{color:var(--g)}
+
+@media(max-width:900px){
+nav{padding:16px 22px}
+.nav-links{display:none}
+.burger{display:flex}
+#how .in,#about .in{grid-template-columns:1fr;gap:44px}
+.pgrid,.ggrid{grid-template-columns:1fr}
+.agrid{grid-template-columns:1fr 1fr}
+.bgrid{grid-template-columns:1fr}
+.cgrid{grid-template-columns:1fr}
+.pillars{grid-template-columns:1fr}
+#hero,#how,#services,#gallery,#about,#faq,#contact{padding-left:22px !important;padding-right:22px !important}
+#hero{padding-top:110px;padding-bottom:70px}
+.htrust{gap:20px}
+footer{padding:36px 22px}
+.ftop{flex-direction:column;gap:18px}
+.bundles{padding:28px 20px}
+}
+@media(max-width:600px){.ggrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#hero" class="logo">Brim &amp; Crown <span>Studio</span></a>
+  <ul class="nav-links">
+    <li><a href="#how">Process</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Results</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="cta">Book Now</a></li>
+  </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="drawer" id="drawer">
+  <a href="#how">Process</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Results</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="dcta">Book Now</a>
+</div>
+
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hline"></div>
+  <div class="hbadge">Orange County + Nationwide Mail-In</div>
+  <h1 class="htitle">Your Favorite Hats,<br><em>Restored the Right Way.</em></h1>
+  <p class="hsub">Premium Hat Cleaning &amp; Restoration</p>
+  <p class="hdesc">We deep clean, deodorize, and reshape caps and hats with a careful process designed to protect structure and materials. Sweat rings, odor, and flattened brims — gone.</p>
+  <div class="hbtns">
+    <a href="#contact" class="btn btn-g">Book Now</a>
+    <a href="#services" class="btn btn-o">View Services</a>
+  </div>
+  <div class="htrust">
+    <div class="ti"><span class="tl">Service</span><span class="tv">Mail-In Nationwide</span></div>
+    <div class="ti"><span class="tl">Local</span><span class="tv">OC Pickup &amp; Drop</span></div>
+    <div class="ti"><span class="tl">Turnaround</span><span class="tv">3–7 Business Days</span></div>
+    <div class="ti"><span class="tl">Rush</span><span class="tv">48–72 Hours</span></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="in">
+    <div class="rev">
+      <span class="sl">The Process</span>
+      <h2 class="st">Simple, <em>Seamless</em><br>from Start to Finish.</h2>
+      <div class="div"></div>
+      <div class="steps">
+        <div class="step"><div class="sn">01</div><div class="st2"><h3>Choose Your Service &amp; Order</h3><p>Select your service tier and quantity. Complete checkout online in under two minutes.</p></div></div>
+        <div class="step"><div class="sn">02</div><div class="st2"><h3>Mail In or Schedule Pickup</h3><p>Ship your hats to our studio, or book an OC scheduled pickup. We handle everything from there.</p></div></div>
+        <div class="step"><div class="sn">03</div><div class="st2"><h3>We Clean, Restore &amp; Confirm</h3><p>Your hats are carefully cleaned, deodorized, and reshaped. You'll get an update when ready.</p></div></div>
+        <div class="step"><div class="sn">04</div><div class="st2"><h3>Delivered Fresh &amp; Restored</h3><p>Shipped back with tracking or dropped off in OC. Fresh, structured, ready to wear again.</p></div></div>
+      </div>
+    </div>
+    <div class="rev">
+      <div class="hbox">
+        <div class="hi">&#9651;</div>
+        <h3>Premium Care.<br>Every Material.</h3>
+        <p>Cotton, wool, performance fabric, structured crowns — we clean with material-awareness so your hat stays safe and comes out looking its best.</p>
+        <a href="#services" class="btn btn-g">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="in">
+    <div class="hdr rev"><span class="sl">Services &amp; Pricing</span><h2 class="st">Clean. Restore. <em>Reshape.</em></h2><div class="div divc"></div></div>
+    <div class="pgrid rev">
+      <div class="pc">
+        <div class="pname">Essential Clean</div>
+        <div class="ptag">Light exterior clean, deodorize &amp; light reshape. Best for light wear.</div>
+        <div class="pprice"><sup>$</sup>39</div>
+        <div class="pdiv"></div>
+        <ul class="pf"><li>Light exterior clean</li><li>Deodorize treatment</li><li>Light reshape</li><li>Best for: light wear, surface refresh</li></ul>
+        <a href="#contact" class="btn btn-o">Order Now</a>
+      </div>
+      <div class="pc feat">
+        <div class="pbadge">Best Seller</div>
+        <div class="pname">Deep Clean + Shape Restore</div>
+        <div class="ptag">Sweatband deep clean, stain treatment, odor removal, full reshape.</div>
+        <div class="pprice"><sup>$</sup>69</div>
+        <div class="pdiv"></div>
+        <ul class="pf"><li>Sweatband deep clean</li><li>Stain treatment</li><li>Odor removal</li><li>Full reshape &amp; crown restore</li><li>Best for: daily wear, sweat rings</li></ul>
+        <a href="#contact" class="btn btn-g">Order Now</a>
+      </div>
+      <div class="pc">
+        <div class="pbadge out">Profit Driver</div>
+        <div class="pname">Restoration+</div>
+        <div class="ptag">Heavy stains, intense deodorizing, whitening &amp; full restoration.</div>
+        <div class="pprice"><sup>$</sup>99<sub>–129</sub></div>
+        <div class="pdiv"></div>
+        <ul class="pf"><li>Heavy sweat ring treatment</li><li>Intense deodorizing</li><li>Whitening/brightening</li><li>Full crown &amp; brim restoration</li><li>Best for: severely worn hats</li></ul>
+        <a href="#contact" class="btn btn-o">Order Now</a>
+      </div>
+    </div>
+    <div class="addons rev">
+      <h3>Add-Ons</h3>
+      <div class="agrid">
+        <div class="addon"><div class="an">Water &amp; Stain Protectant</div><div class="ap">+$15</div></div>
+        <div class="addon"><div class="an">Rush Service (48–72 hrs)</div><div class="ap">+$25</div></div>
+        <div class="addon"><div class="an">OC Pickup / Drop</div><div class="ap">+$15–25</div></div>
+        <div class="addon"><div class="an">Spot Treatment</div><div class="ap">+$10</div></div>
+      </div>
+      <div class="bundles">
+        <h3>Bundles</h3>
+        <div class="bgrid">
+          <div class="bundle"><div class="bh">2</div><div class="bl">Hats — Deep Clean</div><div class="bp">$129</div></div>
+          <div class="bundle bv"><div class="bh">3</div><div class="bl">Hats — Deep Clean</div><div class="bp">$179</div></div>
+          <div class="bundle"><div class="bh">5</div><div class="bl">Hats — Deep Clean</div><div class="bp">$279</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="in">
+    <div class="hdr rev"><span class="sl">Before &amp; After</span><h2 class="st">Results That <em>Speak.</em></h2><div class="div divc"></div></div>
+    <div class="ggrid rev">
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>Deep Clean + Shape Restore</h4><p>Removed heavy sweat ring, restored crown structure, full deodorize and reshape.</p></div>
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>Restoration+ — White New Era</h4><p>Yellowing and deep sweat stains treated. Brightened sweatband, full brim reshape.</p></div>
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1517941823-815bea90d291?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>Wool Snapback — Essential Clean</h4><p>Surface refresh and deodorize, preserving delicate wool structure.</p></div>
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1590134872386-f9d6b5de2d70?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1508973379184-7517410fb0bc?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>5-Panel Camp Cap</h4><p>Odor treatment and sweatband deep clean. Structured brim restored, stain lifted.</p></div>
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>Vintage Dad Hat — Restoration+</h4><p>Careful material-specific restoration. Odor eliminated, shape brought back.</p></div>
+      <div class="gi"><div class="bap"><div class="ba before"><img src="https://images.unsplash.com/photo-1566479179817-56cf3e3d1795?w=400&q=80" alt="Before"><span class="bl2">Before</span></div><div class="ba after"><img src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=400&q=80" alt="After"><span class="bl2">After</span></div></div><h4>Performance Cap Bundle (3)</h4><p>Bundle order — deep clean on 3 athletic caps. Sweat and odor completely cleared.</p></div>
+    </div>
+    <p style="text-align:center;margin-top:36px;font-size:.66rem;color:rgba(245,240,232,.22);font-style:italic">Sample images shown — your real before &amp; after photos will be featured here.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="in">
+    <div class="rev">
+      <div class="abox">
+        <p class="aq">"Good hats aren't<br><em>disposable.</em>"</p>
+        <div class="aa">— Brim &amp; Crown Studio</div>
+      </div>
+    </div>
+    <div class="at rev">
+      <span class="sl">About the Studio</span>
+      <h2 class="st">Crafted for People<br>Who <em>Care.</em></h2>
+      <div class="div"></div>
+      <p>I started this service because good hats aren't disposable. The right cleaning restores shape, removes sweat and odor, and brings your favorite cap back to life — without the risks of DIY washing.</p>
+      <p>Brim &amp; Crown Studio is built for men who care about style and presentation. We serve Orange County locally with scheduled pickup and drop, and we're available nationwide through our streamlined mail-in service.</p>
+      <p>Every hat is treated with material-awareness. Cotton, wool, performance fabrics, structured crowns — each gets the process it deserves.</p>
+      <div class="pillars">
+        <div class="pillar"><h4>Process-Driven</h4><p>Careful, step-by-step restoration. Not a quick rinse.</p></div>
+        <div class="pillar"><h4>Material-Aware</h4><p>Every material type gets the right approach.</p></div>
+        <div class="pillar"><h4>Local + National</h4><p>OC pickup/drop and mail-in nationwide.</p></div>
+        <div class="pillar"><h4>Fast Turnaround</h4><p>3–7 business days. Rush in 48–72 hrs.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="in">
+    <div class="hdr rev"><span class="sl">FAQ</span><h2 class="st">Common <em>Questions.</em></h2><div class="div divc"></div></div>
+    <div class="flist rev">
+      <div class="fi"><div class="fq">Do you clean all hat types?<span class="fp">+</span></div><div class="fa">We clean most caps and hats. Some delicate, vintage, or specialty materials may require an evaluation first.</div></div>
+      <div class="fi"><div class="fq">Can you remove sweat rings?<span class="fp">+</span></div><div class="fa">In most cases, yes — especially with Deep Clean or Restoration+. Results vary based on fabric, dye, age, and any prior damage.</div></div>
+      <div class="fi"><div class="fq">Will my hat look brand new?<span class="fp">+</span></div><div class="fa">We aim for the best possible restoration. Some staining or fading can be permanent. We'll always be upfront about what's realistic.</div></div>
+      <div class="fi"><div class="fq">Do you reshape hats?<span class="fp">+</span></div><div class="fa">Yes — shape restore is included in both the Deep Clean and Restoration+ service tiers.</div></div>
+      <div class="fi"><div class="fq">How does mail-in work?<span class="fp">+</span></div><div class="fa">Order online, pack your hats in a sturdy box with your name and order number, ship to us, and we ship back with tracking when complete.</div></div>
+      <div class="fi"><div class="fq">What's your turnaround time?<span class="fp">+</span></div><div class="fa">Standard turnaround is 3–7 business days after arrival. Rush service (48–72 hours) available for +$25.</div></div>
+      <div class="fi"><div class="fq">Do you offer OC pickup?<span class="fp">+</span></div><div class="fa">Yes — scheduled routes covering Santa Ana, Costa Mesa, Irvine, Huntington Beach, Tustin, Fountain Valley, Orange, Garden Grove, and surrounding areas.</div></div>
+      <div class="fi"><div class="fq">What if my hat is heavily damaged?<span class="fp">+</span></div><div class="fa">We'll assess and let you know what's realistically possible before we begin. We'll always be honest with you about the outcome.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="in">
+    <span class="sl">Get Started</span>
+    <h2 class="st rev">Ready to <em>Restore</em><br>Your Favorite Hat?</h2>
+    <div class="div divc rev"></div>
+    <p class="cdesc rev">Book online and have your hats back looking fresh in days.<br>Choose the option that works best for you.</p>
+    <div class="cgrid rev">
+      <div class="co"><div class="coi">&#9992;</div><h4>Mail-In Order</h4><p>Available nationwide. Ship to us, we clean and ship back with tracking.</p><a href="#" class="btn btn-g">Start Mail-In Order</a></div>
+      <div class="co"><div class="coi">&#9711;</div><h4>OC Pickup / Drop</h4><p>Orange County residents. Scheduled routes with convenient pickup and drop-off.</p><a href="#" class="btn btn-o">Schedule OC Pickup</a></div>
+    </div>
+    <div class="cnote rev"><p>Questions? Reach us at <a href="mailto:hello@brimandcrown.com">hello@brimandcrown.com</a></p><p style="margin-top:6px">Serving Santa Ana, Costa Mesa, Irvine &amp; all of Orange County</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="ftop">
+    <div class="flogo">Brim &amp; Crown <span>Studio</span></div>
+    <ul class="flinks"><li><a href="#how">Process</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Results</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Book Now</a></li></ul>
+    <div class="fcopy">Orange County, CA + Nationwide</div>
+  </div>
+  <div class="fbot">
+    <ul class="fpol"><li><a href="#">Shipping Policy</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Damage &amp; Liability</a></li><li><a href="#">Privacy Policy</a></li></ul>
+    <div class="fcopy">&#169; 2025 Brim &amp; Crown Studio. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav'),burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)});
+burger.addEventListener('click',function(){burger.classList.toggle('on');drawer.classList.toggle('on');document.body.style.overflow=drawer.classList.contains('on')?'hidden':''});
+drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('on');drawer.classList.remove('on');document.body.style.overflow=''})});
+document.querySelectorAll('.fq').forEach(function(q){q.addEventListener('click',function(){var fi=q.parentElement,was=fi.classList.contains('on');document.querySelectorAll('.fi').forEach(function(f){f.classList.remove('on')});if(!was)fi.classList.add('on')})});
+var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
+document.querySelectorAll('.rev').forEach(function(el){ob.observe(el)});
+</script>
+</body>
+</html>
