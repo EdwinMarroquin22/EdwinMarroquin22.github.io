@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 160" width="620" height="160">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9a7a32"/>
+      <stop offset="25%" style="stop-color:#c9a84c"/>
+      <stop offset="55%" style="stop-color:#e8c97a"/>
+      <stop offset="100%" style="stop-color:#c9a84c"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8c97a"/>
+      <stop offset="100%" style="stop-color:#9a7a32"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="620" height="160" fill="#0a0a0a"/>
+
+  <!-- ── EMBLEM ── -->
+  <!-- Outer octagon frame -->
+  <polygon points="80,12 108,12 122,26 122,90 108,104 80,104 66,90 66,26"
+    fill="none" stroke="url(#gold)" stroke-width="1.2"/>
+  <!-- Inner frame -->
+  <polygon points="83,17 105,17 117,29 117,87 105,99 83,99 71,87 71,29"
+    fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Crown body: 3 peaks -->
+  <path d="M 76,76 L 76,52 L 83,64 L 94,36 L 105,64 L 112,52 L 112,76 Z"
+    fill="url(#goldV)"/>
+  <!-- Crown base band -->
+  <rect x="76" y="73" width="36" height="5.5" fill="url(#gold)" rx="0.5"/>
+  <!-- Jewels -->
+  <circle cx="84" cy="70" r="1.8" fill="#0a0a0a"/>
+  <circle cx="94" cy="68" r="2.2" fill="#0a0a0a"/>
+  <circle cx="104" cy="70" r="1.8" fill="#0a0a0a"/>
+
+  <!-- Hat brim arc -->
+  <path d="M 62,88 Q 94,80 126,88" fill="none" stroke="url(#gold)" stroke-width="1.6"/>
+  <path d="M 66,93 Q 94,86 122,93" fill="none" stroke="url(#gold)" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Top & bottom diamond accents -->
+  <polygon points="94,8 97,11 94,14 91,11"  fill="url(#gold)" opacity="0.75"/>
+  <polygon points="94,105 97,108 94,111 91,108" fill="url(#gold)" opacity="0.75"/>
+
+  <!-- ── WORDMARK ── -->
+  <!-- Top rule -->
+  <line x1="148" y1="38" x2="600" y2="38" stroke="url(#gold)" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- BRIM & CROWN on one line -->
+  <text x="148" y="88"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="52"
+    font-weight="400"
+    letter-spacing="6"
+    fill="url(#gold)">BRIM</text>
+
+  <!-- Ampersand -->
+  <text x="307" y="88"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="28"
+    font-style="italic"
+    font-weight="400"
+    fill="#c9a84c"
+    opacity="0.8">&#38;</text>
+
+  <!-- CROWN in cream -->
+  <text x="340" y="88"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="52"
+    font-weight="400"
+    letter-spacing="6"
+    fill="#f5f0e8">CROWN</text>
+
+  <!-- Bottom rule -->
+  <line x1="148" y1="98" x2="600" y2="98" stroke="url(#gold)" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- STUDIO -->
+  <text x="148" y="118"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="10"
+    font-weight="400"
+    letter-spacing="13"
+    fill="url(#gold)"
+    opacity="0.6">STUDIO</text>
+
+  <!-- Tagline -->
+  <text x="148" y="136"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="8"
+    font-style="italic"
+    letter-spacing="3"
+    fill="#c9a84c"
+    opacity="0.42">Premium Hat Cleaning &#38; Restoration</text>
+</svg>
