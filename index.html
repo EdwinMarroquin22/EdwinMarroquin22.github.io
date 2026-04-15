@@ -2,533 +2,389 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Restored Caps — Premium Hat Cleaning & Restoration</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --blue:     #0b2550;
-  --blue-mid: #1540a0;
-  --blue-lt:  #1e55cc;
-  --gold:     #c9a84c;
-  --gold-lt:  #e8c97a;
-  --gold-dk:  #9a7a32;
-  --white:    #ffffff;
-  --off:      #eef3ff;
-  --text:     #0b1e3d;
-  --muted:    #5a7299;
-  --fd: 'Barlow Condensed', sans-serif;
-  --fb: 'Barlow', sans-serif;
-}
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--fb); background: var(--blue); color: var(--white); overflow-x: hidden; }
+:root{--blue:#0b2550;--blue-mid:#1540a0;--blue-lt:#1e55cc;--gold:#c9a84c;--gold-lt:#e8c97a;--gold-dk:#9a7a32;--white:#ffffff;--off:#eef3ff;--text:#0b1e3d;--muted:#5a7299;--green:#1a7a4a;--green-lt:#e6f5ee;--border:#dde4f0;--fd:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--blue);color:var(--white);overflow-x:hidden}
 
 /* ── NAV ── */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 56px;
-  background: rgba(11,37,80,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201,168,76,.2);
-  transition: padding .3s;
-}
-nav.scrolled { padding: 12px 56px; }
-.nav-logo {
-  display: flex; align-items: center; gap: 12px;
-  text-decoration: none;
-}
-.nav-logo-icon {
-  width: 42px; height: 42px;
-}
-.nav-wordmark {
-  display: flex; flex-direction: column; line-height: 1;
-}
-.nav-wordmark .top {
-  font-family: var(--fd); font-size: 1.05rem; font-weight: 900;
-  letter-spacing: .12em; color: var(--white); text-transform: uppercase;
-}
-.nav-wordmark .bot {
-  font-family: var(--fd); font-size: .95rem; font-weight: 700;
-  letter-spacing: .18em; color: var(--gold); text-transform: uppercase;
-}
-.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
-.nav-links a {
-  font-size: .72rem; font-weight: 600; letter-spacing: .14em;
-  text-transform: uppercase; color: rgba(255,255,255,.65);
-  text-decoration: none; transition: color .2s;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-cta {
-  background: var(--gold); color: var(--blue) !important;
-  padding: 10px 24px; border-radius: 4px;
-  font-weight: 700 !important; color: var(--blue) !important;
-  opacity: 1 !important; transition: background .2s, transform .15s !important;
-}
-.nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px); }
-
-/* BURGER */
-.burger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.burger span { display:block; width:24px; height:1.5px; background:var(--white); transition:transform .3s,opacity .3s; }
-.burger.on span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
-.burger.on span:nth-child(2) { opacity:0; }
-.burger.on span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
-.drawer {
-  display:none; position:fixed; inset:0; z-index:99;
-  background:rgba(11,37,80,.98); backdrop-filter:blur(16px);
-  flex-direction:column; align-items:center; justify-content:center; gap:32px;
-}
-.drawer.on { display:flex; }
-.drawer a {
-  font-family:var(--fd); font-size:2.2rem; font-weight:700;
-  color:var(--white); text-decoration:none; letter-spacing:.08em;
-  text-transform:uppercase; transition:color .2s;
-}
-.drawer a:hover { color:var(--gold); }
-.drawer .d-cta {
-  font-size:1rem; background:var(--gold); color:var(--blue);
-  padding:14px 40px; border-radius:4px; margin-top:8px;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:rgba(11,37,80,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.2);transition:padding .3s}
+nav.scrolled{padding:12px 56px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1}
+.nav-wordmark .top{font-family:var(--fd);font-size:1.05rem;font-weight:900;letter-spacing:.12em;color:var(--white);text-transform:uppercase}
+.nav-wordmark .bot{font-family:var(--fd);font-size:.95rem;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--blue) !important;padding:10px 24px;border-radius:4px;font-weight:700 !important;opacity:1 !important;transition:background .2s,transform .15s !important}
+.nav-cta:hover{background:var(--gold-lt) !important;transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:1.5px;background:var(--white);transition:transform .3s,opacity .3s}
+.burger.on span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.drawer{display:none;position:fixed;inset:0;z-index:190;background:rgba(11,37,80,.98);backdrop-filter:blur(16px);flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.drawer.on{display:flex}
+.drawer a{font-family:var(--fd);font-size:2.2rem;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;cursor:pointer}
+.drawer a:hover{color:var(--gold)}
+.drawer .d-cta{font-size:1rem;background:var(--gold);color:var(--blue);padding:14px 40px;border-radius:4px;margin-top:8px}
 
 /* ── BUTTONS ── */
-.btn {
-  display: inline-block; font-family: var(--fb); font-size: .78rem;
-  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  padding: 16px 36px; border-radius: 4px; text-decoration: none;
-  cursor: pointer; border: none; transition: background .2s, transform .15s, border-color .2s, color .2s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn-gold { background: var(--gold); color: var(--blue); }
-.btn-gold:hover { background: var(--gold-lt); }
-.btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.35); }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.btn-blue { background: var(--blue); color: var(--white); }
-.btn-blue:hover { background: #0d2c60; }
+.btn{display:inline-block;font-family:var(--fb);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:4px;text-decoration:none;cursor:pointer;border:none;transition:background .2s,transform .15s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--blue)}
+.btn-gold:hover{background:var(--gold-lt)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.35)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:#0d2c60}
 
 /* ── HERO ── */
-#hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  padding: 130px 32px 80px;
-  position: relative; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 35%, rgba(30,85,204,.35) 0%, transparent 70%),
-    linear-gradient(175deg, #0b2550 0%, #0d2e60 50%, #0b2550 100%);
-}
-/* Subtle diagonal lines texture */
-.hero-lines {
-  position: absolute; inset: 0; opacity: .04;
-  background-image: repeating-linear-gradient(
-    -55deg,
-    transparent, transparent 40px,
-    rgba(255,255,255,.6) 40px, rgba(255,255,255,.6) 41px
-  );
-}
-.hero-content { position: relative; max-width: 820px; }
-
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: .65rem; font-weight: 700; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--gold);
-  border: 1px solid rgba(201,168,76,.35);
-  padding: 7px 18px; border-radius: 100px;
-  margin-bottom: 32px;
-  opacity: 0; animation: fu .7s .3s forwards;
-}
-.hero-badge::before {
-  content: ''; width: 6px; height: 6px;
-  border-radius: 50%; background: var(--gold);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-
-.hero-title {
-  font-family: var(--fd); font-size: clamp(3.8rem, 9vw, 7.5rem);
-  font-weight: 900; line-height: .92; letter-spacing: -.01em;
-  text-transform: uppercase; margin-bottom: 20px;
-  opacity: 0; animation: fu .8s .45s forwards;
-}
-.hero-title .line-gold { color: var(--gold); display: block; }
-.hero-title .line-white { color: var(--white); display: block; }
-
-.hero-sub {
-  font-size: clamp(1rem, 2.2vw, 1.25rem); font-weight: 400;
-  color: rgba(255,255,255,.6); line-height: 1.7;
-  max-width: 520px; margin: 0 auto 44px;
-  opacity: 0; animation: fu .8s .6s forwards;
-}
-
-.hero-btns {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  justify-content: center; margin-bottom: 60px;
-  opacity: 0; animation: fu .8s .75s forwards;
-}
-
-.hero-trust {
-  display: flex; gap: 40px; justify-content: center;
-  flex-wrap: wrap; padding-top: 36px;
-  border-top: 1px solid rgba(201,168,76,.2);
-  opacity: 0; animation: fu .8s .9s forwards;
-}
-.trust-item { text-align: center; }
-.trust-item .tl {
-  font-size: .58rem; font-weight: 700; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--gold);
-  display: block; margin-bottom: 4px;
-}
-.trust-item .tv {
-  font-family: var(--fd); font-size: 1.05rem; font-weight: 600;
-  color: rgba(255,255,255,.55);
-}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 32px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 35%,rgba(30,85,204,.35) 0%,transparent 70%),linear-gradient(175deg,#0b2550 0%,#0d2e60 50%,#0b2550 100%)}
+.hero-lines{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,.6) 40px,rgba(255,255,255,.6) 41px)}
+.hero-content{position:relative;max-width:820px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.35);padding:7px 18px;border-radius:100px;margin-bottom:32px;opacity:0;animation:fu .7s .3s forwards}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-family:var(--fd);font-size:clamp(3.8rem,9vw,7.5rem);font-weight:900;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fu .8s .45s forwards}
+.hero-title .line-gold{color:var(--gold);display:block}
+.hero-title .line-white{color:var(--white);display:block}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);font-weight:400;color:rgba(255,255,255,.6);line-height:1.7;max-width:520px;margin:0 auto 44px;opacity:0;animation:fu .8s .6s forwards}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:60px;opacity:0;animation:fu .8s .75s forwards}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(201,168,76,.2);opacity:0;animation:fu .8s .9s forwards}
+.trust-item{text-align:center}
+.trust-item .tl{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}
+.trust-item .tv{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,.55)}
 
 /* ── SERVICES ── */
-#services {
-  padding: 100px 56px;
-  background: var(--white);
-  color: var(--text);
-}
-#services .inner { max-width: 1100px; margin: 0 auto; }
-#services .hdr { text-align: center; margin-bottom: 64px; }
+#services{padding:100px 56px;background:var(--white);color:var(--text)}
+#services .inner{max-width:1100px;margin:0 auto}
+#services .hdr{text-align:center;margin-bottom:64px}
+.section-chip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-mid);background:var(--off);padding:6px 16px;border-radius:100px;margin-bottom:16px}
+.section-title{font-family:var(--fd);font-size:clamp(2.6rem,5vw,4rem);font-weight:900;text-transform:uppercase;line-height:.95;color:var(--text);margin-bottom:16px;letter-spacing:-.01em}
+.section-title span{color:var(--blue-mid)}
+.section-desc{font-size:1rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.7}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.pc{background:var(--off);border-radius:12px;padding:36px 28px;position:relative;border:2px solid transparent;transition:border-color .25s,transform .25s,box-shadow .25s}
+.pc:hover{border-color:var(--blue-lt);transform:translateY(-4px);box-shadow:0 20px 40px rgba(21,64,160,.12)}
+.pc.featured{background:var(--blue);color:var(--white);border-color:var(--blue-mid)}
+.pc.featured:hover{border-color:var(--gold);box-shadow:0 20px 40px rgba(11,37,80,.3)}
+.pc-badge{font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);color:var(--blue);padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:18px}
+.pc-name{font-family:var(--fd);font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:inherit;margin-bottom:6px}
+.pc.featured .pc-name{color:var(--white)}
+.pc-tag{font-size:.8rem;color:var(--muted);margin-bottom:24px;line-height:1.5}
+.pc.featured .pc-tag{color:rgba(255,255,255,.6)}
+.pc-price{font-family:var(--fd);font-size:3.5rem;font-weight:900;color:var(--blue);line-height:1;margin-bottom:4px}
+.pc.featured .pc-price{color:var(--gold)}
+.pc-price sup{font-size:1.4rem;vertical-align:super}
+.pc-div{height:1px;background:rgba(11,37,80,.1);margin:20px 0 22px}
+.pc.featured .pc-div{background:rgba(255,255,255,.15)}
+.pc-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pc-features li{font-size:.82rem;color:var(--text);padding-left:20px;position:relative;line-height:1.5}
+.pc.featured .pc-features li{color:rgba(255,255,255,.8)}
+.pc-features li::before{content:'✓';position:absolute;left:0;color:var(--blue-mid);font-weight:700;font-size:.75rem}
+.pc.featured .pc-features li::before{color:var(--gold)}
+.addons-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
+.addon-item{background:var(--off);border-radius:8px;padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;border:1px solid rgba(11,37,80,.08);transition:border-color .2s}
+.addon-item:hover{border-color:var(--blue-lt)}
+.addon-item .an{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.05em}
+.addon-item .ap{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--blue)}
+.bundles-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bundle{background:var(--off);border-radius:8px;padding:24px;text-align:center;border:2px solid transparent;position:relative;transition:border-color .2s,transform .2s}
+.bundle:hover{border-color:var(--gold);transform:translateY(-2px)}
+.bundle.bv{border-color:var(--gold)}
+.bundle.bv::before{content:'Best Value';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--blue);font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 14px;border-radius:100px;white-space:nowrap}
+.bundle .bh{font-family:var(--fd);font-size:2.8rem;font-weight:900;color:var(--blue);line-height:1}
+.bundle .bl{font-size:.68rem;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin:4px 0 10px}
+.bundle .bp{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--blue-mid)}
 
-.section-chip {
-  display: inline-block;
-  font-size: .6rem; font-weight: 700; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--blue-mid);
-  background: var(--off); padding: 6px 16px; border-radius: 100px;
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: var(--fd); font-size: clamp(2.6rem, 5vw, 4rem);
-  font-weight: 900; text-transform: uppercase; line-height: .95;
-  color: var(--text); margin-bottom: 16px; letter-spacing: -.01em;
-}
-.section-title span { color: var(--blue-mid); }
-.section-desc {
-  font-size: 1rem; color: var(--muted); max-width: 500px;
-  margin: 0 auto; line-height: 1.7;
-}
+/* ── ORDER MODAL OVERLAY ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(11,37,80,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);border-radius:16px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.modal-header{background:var(--blue);padding:24px 28px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-radius:16px 16px 0 0;position:sticky;top:0;z-index:10}
+.modal-header-text h2{font-family:var(--fd);font-size:1.5rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:4px}
+.modal-header-text p{font-size:.78rem;color:rgba(255,255,255,.55)}
+.modal-close{background:rgba(255,255,255,.12);border:none;color:var(--white);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
+.modal-close:hover{background:rgba(255,255,255,.25)}
+.form-steps{display:flex;background:var(--off);border-bottom:1px solid var(--border)}
+.fstep{flex:1;padding:12px 8px;text-align:center;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;transition:all .2s}
+.fstep.active{color:var(--blue-mid);border-bottom-color:var(--blue-mid);background:var(--white)}
+.fstep.done{color:var(--green);border-bottom-color:var(--green)}
+.form-body{padding:24px 28px;color:var(--text)}
+.form-section{display:none}
+.form-section.active{display:block}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--fb);font-size:.9rem;color:var(--text);background:var(--white);transition:border-color .2s;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue-mid)}
+.field textarea{resize:vertical;min-height:72px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.svc-card{border:2px solid var(--border);border-radius:10px;padding:14px 10px;cursor:pointer;transition:all .2s;text-align:center;position:relative}
+.svc-card:hover{border-color:var(--blue-lt)}
+.svc-card.selected{border-color:var(--blue-mid);background:var(--off)}
+.svc-card .sname{font-family:var(--fd);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:3px}
+.svc-card .sprice{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--blue-mid);line-height:1}
+.svc-card .sdesc{font-size:.65rem;color:var(--muted);margin-top:4px;line-height:1.3}
+.svc-card .sbest{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--blue);font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:100px;white-space:nowrap}
+.addon-check{display:flex;align-items:center;gap:12px;padding:11px 13px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;margin-bottom:7px;transition:border-color .2s}
+.addon-check:hover{border-color:var(--blue-lt)}
+.addon-check.checked{border-color:var(--blue-mid);background:var(--off)}
+.addon-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue-mid);cursor:pointer;flex-shrink:0}
+.addon-check .alabel{flex:1;font-size:.82rem;font-weight:600;color:var(--text)}
+.addon-check .aprice{font-size:.82rem;font-weight:700;color:var(--blue-mid)}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:.86rem}
+.summary-row:last-child{border-bottom:none}
+.summary-row .sl{color:var(--muted)}
+.summary-row .sv{font-weight:600;color:var(--text)}
+.summary-total{display:flex;justify-content:space-between;align-items:center;padding:14px;background:var(--blue);border-radius:8px;margin:14px 0}
+.summary-total span:first-child{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.summary-total span:last-child{font-family:var(--fd);font-size:1.9rem;font-weight:900;color:var(--gold)}
+.pay-option{display:flex;align-items:center;gap:14px;padding:13px 15px;border:2px solid var(--border);border-radius:10px;cursor:pointer;margin-bottom:9px;transition:border-color .2s}
+.pay-option:hover{border-color:var(--blue-lt)}
+.pay-option.selected{border-color:var(--blue-mid);background:var(--off)}
+.pay-option input[type=radio]{width:17px;height:17px;accent-color:var(--blue-mid)}
+.pay-option .plabel{font-size:.88rem;font-weight:600;color:var(--text)}
+.pay-option .psub{font-size:.72rem;color:var(--muted)}
+.card-fields{background:var(--off);border-radius:8px;padding:14px;margin-top:10px}
+.card-fields .field{margin-bottom:10px}
+.card-fields .field:last-child{margin-bottom:0}
+.btn-primary{background:var(--blue-mid);color:var(--white);border:none;padding:13px 24px;border-radius:8px;font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.06em;cursor:pointer;width:100%;transition:background .2s,transform .15s}
+.btn-primary:hover{background:var(--blue-lt);transform:translateY(-1px)}
+.btn-gold-form{background:var(--gold);color:var(--blue);border:none;padding:13px 24px;border-radius:8px;font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.06em;cursor:pointer;width:100%;transition:background .2s,transform .15s}
+.btn-gold-form:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.btn-back-form{background:none;border:1.5px solid var(--border);color:var(--muted);padding:11px 18px;border-radius:8px;font-family:var(--fb);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;flex-shrink:0}
+.btn-back-form:hover{border-color:var(--blue-lt);color:var(--blue-mid)}
+.btn-row{display:flex;gap:10px;margin-top:20px}
+.btn-row .btn-primary,.btn-row .btn-gold-form{flex:1}
+.security-note{background:var(--off);border-radius:8px;padding:11px 13px;margin:14px 0;font-size:.72rem;color:var(--muted);line-height:1.6}
+.success-wrap{padding:32px 28px;text-align:center}
+.success-icon-big{width:68px;height:68px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px}
+.success-wrap h2{font-family:var(--fd);font-size:1.8rem;font-weight:900;text-transform:uppercase;color:var(--text);margin-bottom:6px}
+.success-wrap .order-id{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--blue-mid);letter-spacing:.1em;margin:10px 0 20px}
+.track-mini-steps{display:flex;position:relative;margin:16px 0 24px}
+.track-mini-steps::before{content:'';position:absolute;top:13px;left:13px;right:13px;height:2px;background:var(--border)}
+.ts{flex:1;text-align:center;position:relative;z-index:1}
+.ts-dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);background:var(--white);margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted)}
+.ts.done .ts-dot{background:var(--green);border-color:var(--green);color:var(--white)}
+.ts.active .ts-dot{background:var(--blue-mid);border-color:var(--blue-mid);color:var(--white)}
+.ts-label{font-size:.55rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 
-/* Pricing cards */
-.pricing-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 16px; margin-bottom: 48px;
-}
-.pc {
-  background: var(--off); border-radius: 12px;
-  padding: 36px 28px; position: relative;
-  border: 2px solid transparent;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
-}
-.pc:hover { border-color: var(--blue-lt); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(21,64,160,.12); }
-.pc.featured {
-  background: var(--blue); color: var(--white);
-  border-color: var(--blue-mid);
-}
-.pc.featured:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(11,37,80,.3); }
-.pc-badge {
-  font-size: .56rem; font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; background: var(--gold); color: var(--blue);
-  padding: 4px 12px; border-radius: 100px;
-  display: inline-block; margin-bottom: 18px;
-}
-.pc-name {
-  font-family: var(--fd); font-size: 1.6rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .02em;
-  color: inherit; margin-bottom: 6px;
-}
-.pc.featured .pc-name { color: var(--white); }
-.pc-tag { font-size: .8rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
-.pc.featured .pc-tag { color: rgba(255,255,255,.6); }
-.pc-price {
-  font-family: var(--fd); font-size: 3.5rem; font-weight: 900;
-  color: var(--blue); line-height: 1; margin-bottom: 4px;
-}
-.pc.featured .pc-price { color: var(--gold); }
-.pc-price sup { font-size: 1.4rem; vertical-align: super; }
-.pc-price sub { font-size: 1rem; color: var(--muted); }
-.pc.featured .pc-price sub { color: rgba(255,255,255,.5); }
-.pc-div { height: 1px; background: rgba(11,37,80,.1); margin: 20px 0 22px; }
-.pc.featured .pc-div { background: rgba(255,255,255,.15); }
-.pc-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.pc-features li {
-  font-size: .82rem; color: var(--text);
-  padding-left: 20px; position: relative; line-height: 1.5;
-}
-.pc.featured .pc-features li { color: rgba(255,255,255,.8); }
-.pc-features li::before { content: '✓'; position: absolute; left: 0; color: var(--blue-mid); font-weight: 700; font-size: .75rem; }
-.pc.featured .pc-features li::before { color: var(--gold); }
+/* ── ORDER SECTION ── */
+#order{padding:100px 56px;background:linear-gradient(160deg,#0b2550 0%,#1540a0 60%,#0b2550 100%);position:relative;overflow:hidden}
+#order::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,.025) 40px,rgba(255,255,255,.025) 41px)}
+#order .inner{position:relative;max-width:1100px;margin:0 auto}
+#order .hdr{text-align:center;margin-bottom:64px}
+#order .section-chip{background:rgba(255,255,255,.1);color:var(--gold)}
+#order .section-title{color:var(--white)}
+#order .section-title span{color:var(--gold)}
+#order .section-desc{color:rgba(255,255,255,.55)}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:780px;margin:0 auto 64px}
+.order-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:40px 32px;text-align:center;transition:background .25s,border-color .25s,transform .25s}
+.order-card:hover{background:rgba(255,255,255,.1);border-color:var(--gold);transform:translateY(-4px)}
+.order-icon{font-size:2.4rem;margin-bottom:14px;display:block;line-height:1}
+.order-card h3{font-family:var(--fd);font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--white);margin-bottom:10px}
+.order-card p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:28px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:900px;margin:0 auto 64px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+.step{background:rgba(11,37,80,.5);padding:28px 20px;text-align:center;transition:background .2s}
+.step:hover{background:rgba(21,64,160,.5)}
+.step-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;color:var(--gold);opacity:.4;line-height:1;margin-bottom:8px}
+.step h4{font-family:var(--fd);font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--white);margin-bottom:5px}
+.step p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.6}
+.faq-mini{max-width:700px;margin:0 auto 64px}
+.fi{border-bottom:1px solid rgba(255,255,255,.1)}
+.fq{padding:18px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--fd);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--white);user-select:none}
+.fq:hover{color:var(--gold)}
+.fp{font-size:1.2rem;color:var(--gold);transition:transform .3s;flex-shrink:0}
+.fi.on .fp{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.8rem;line-height:1.8;color:rgba(255,255,255,.5)}
+.fi.on .fa{max-height:120px;padding-bottom:18px}
+.final-cta{text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:16px;padding:52px 40px;max-width:640px;margin:0 auto}
+.final-cta .fc-label{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
+.final-cta h3{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);margin-bottom:10px;line-height:1}
+.final-cta p{font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-/* Add-ons row */
-.addons-row {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 12px; margin-bottom: 48px;
-}
-.addon {
-  background: var(--off); border-radius: 8px;
-  padding: 20px 16px; display: flex;
-  flex-direction: column; align-items: center;
-  gap: 6px; text-align: center;
-  border: 1px solid rgba(11,37,80,.08);
-  transition: border-color .2s;
-}
-.addon:hover { border-color: var(--blue-lt); }
-.addon .an { font-size: .7rem; font-weight: 600; color: var(--muted); letter-spacing: .05em; }
-.addon .ap { font-family: var(--fd); font-size: 1.4rem; font-weight: 700; color: var(--blue); }
+/* ── FOOTER ── */
+footer{background:#060f1e;padding:48px 56px;border-top:1px solid rgba(201,168,76,.12)}
+footer .inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.f-logo{display:flex;flex-direction:column;line-height:1.1}
+.f-logo .ft{font-family:var(--fd);font-size:1.2rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.f-logo .fb2{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.f-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.f-links a{font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;cursor:pointer}
+.f-links a:hover{color:var(--gold)}
+.f-copy{font-size:.62rem;color:rgba(255,255,255,.2)}
+.f-bottom{max-width:1100px;margin:24px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-policy{display:flex;gap:20px;list-style:none}
+.f-policy a{font-size:.6rem;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s}
+.f-policy a:hover{color:var(--gold)}
 
-/* Bundles */
-.bundles-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-.bundle {
-  background: var(--off); border-radius: 8px;
-  padding: 24px; text-align: center;
-  border: 2px solid transparent;
-  position: relative; transition: border-color .2s, transform .2s;
-}
-.bundle:hover { border-color: var(--gold); transform: translateY(-2px); }
-.bundle.bv { border-color: var(--gold); }
-.bundle.bv::before {
-  content: 'Best Value';
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--blue);
-  font-size: .55rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; padding: 3px 14px; border-radius: 100px;
-  white-space: nowrap;
-}
-.bundle .bh { font-family: var(--fd); font-size: 2.8rem; font-weight: 900; color: var(--blue); line-height: 1; }
-.bundle .bl { font-size: .68rem; font-weight: 600; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin: 4px 0 10px; }
-.bundle .bp { font-family: var(--fd); font-size: 1.8rem; font-weight: 700; color: var(--blue-mid); }
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--blue);color:var(--white);padding:14px 20px;border-radius:10px;font-size:.84rem;font-weight:600;box-shadow:0 8px 24px rgba(11,37,80,.35);z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:var(--green)}
 
-/* ── ORDER ── */
-#order {
-  padding: 100px 56px;
-  background: linear-gradient(160deg, #0b2550 0%, #1540a0 60%, #0b2550 100%);
-  position: relative; overflow: hidden;
-}
-#order::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(
-    -55deg, transparent, transparent 40px,
-    rgba(255,255,255,.025) 40px, rgba(255,255,255,.025) 41px
-  );
-}
-#order .inner {
-  position: relative; max-width: 1100px; margin: 0 auto;
-}
-#order .hdr { text-align: center; margin-bottom: 64px; }
-#order .section-title { color: var(--white); }
-#order .section-title span { color: var(--gold); }
-#order .section-desc { color: rgba(255,255,255,.55); }
+/* ── ANIMATIONS ── */
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.rev{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rev.on{opacity:1;transform:none}
 
-.order-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 20px; max-width: 780px; margin: 0 auto 64px;
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+nav{padding:16px 22px}nav.scrolled{padding:12px 22px}
+.nav-links{display:none}.burger{display:flex}
+.pricing-grid,.order-grid{grid-template-columns:1fr}
+.addons-row{grid-template-columns:1fr 1fr}
+.bundles-row{grid-template-columns:1fr}
+.process{grid-template-columns:1fr 1fr}
+.service-grid{grid-template-columns:1fr}
+.field-row{grid-template-columns:1fr}
+#hero,#services,#order{padding-left:22px !important;padding-right:22px !important}
+#hero{padding-top:110px}
+footer{padding:36px 22px}
+footer .inner{flex-direction:column;gap:18px}
 }
-.order-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 14px; padding: 40px 32px;
-  text-align: center;
-  transition: background .25s, border-color .25s, transform .25s;
-}
-.order-card:hover {
-  background: rgba(255,255,255,.1);
-  border-color: var(--gold);
-  transform: translateY(-4px);
-}
-.order-icon {
-  font-size: 2.4rem; margin-bottom: 14px;
-  display: block; line-height: 1;
-}
-.order-card h3 {
-  font-family: var(--fd); font-size: 1.5rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .05em;
-  color: var(--white); margin-bottom: 10px;
-}
-.order-card p {
-  font-size: .82rem; color: rgba(255,255,255,.5);
-  line-height: 1.7; margin-bottom: 28px;
-}
-
-/* Process steps */
-.process {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 2px; max-width: 900px; margin: 0 auto 64px;
-  background: rgba(255,255,255,.08); border-radius: 12px;
-  overflow: hidden;
-}
-.step {
-  background: rgba(11,37,80,.5);
-  padding: 32px 24px; text-align: center;
-  transition: background .2s;
-}
-.step:hover { background: rgba(21,64,160,.5); }
-.step-num {
-  font-family: var(--fd); font-size: 2.4rem; font-weight: 900;
-  color: var(--gold); opacity: .4; line-height: 1; margin-bottom: 10px;
-}
-.step h4 {
-  font-family: var(--fd); font-size: 1rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .06em;
-  color: var(--white); margin-bottom: 6px;
-}
-.step p { font-size: .75rem; color: rgba(255,255,255,.45); line-height: 1.6; }
-
-/* FAQ mini */
-.faq-mini { max-width: 700px; margin: 0 auto 64px; }
-.fi { border-bottom: 1px solid rgba(255,255,255,.1); }
-.fq {
-  padding: 20px 0; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  font-family: var(--fd); font-size: 1.05rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: .04em;
-  color: var(--white); user-select: none;
-}
-.fq:hover { color: var(--gold); }
-.fp { font-size: 1.3rem; color: var(--gold); transition: transform .3s; flex-shrink: 0; }
-.fi.on .fp { transform: rotate(45deg); }
-.fa { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: .82rem; line-height: 1.8; color: rgba(255,255,255,.5); }
-.fi.on .fa { max-height: 150px; padding-bottom: 20px; }
-
-/* Final CTA */
-.final-cta {
-  text-align: center;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(201,168,76,.25);
-  border-radius: 16px; padding: 56px 40px;
-  max-width: 640px; margin: 0 auto;
-}
-.final-cta .fc-label {
-  font-size: .62rem; font-weight: 700; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block;
-}
-.final-cta h3 {
-  font-family: var(--fd); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
-  text-transform: uppercase; color: var(--white); margin-bottom: 10px; line-height: 1;
-}
-.final-cta p { font-size: .88rem; color: rgba(255,255,255,.5); margin-bottom: 30px; line-height: 1.7; }
-.final-cta .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-/* FOOTER */
-footer {
-  background: #060f1e;
-  padding: 48px 56px;
-  border-top: 1px solid rgba(201,168,76,.12);
-}
-footer .inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 24px;
-}
-.f-logo { display: flex; flex-direction: column; line-height: 1.1; }
-.f-logo .ft { font-family: var(--fd); font-size: 1.2rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--white); }
-.f-logo .fb { font-family: var(--fd); font-size: 1rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); }
-.f-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
-.f-links a { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
-.f-links a:hover { color: var(--gold); }
-.f-copy { font-size: .62rem; color: rgba(255,255,255,.2); }
-.f-bottom { max-width: 1100px; margin: 28px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.f-policy { display: flex; gap: 20px; list-style: none; }
-.f-policy a { font-size: .6rem; color: rgba(255,255,255,.18); text-decoration: none; transition: color .2s; }
-.f-policy a:hover { color: var(--gold); }
-
-/* ANIMATIONS */
-@keyframes fu { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-.rev { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
-.rev.on { opacity:1; transform:none; }
-
-/* RESPONSIVE */
-@media(max-width:900px) {
-  nav { padding:16px 22px; }
-  nav.scrolled { padding:12px 22px; }
-  .nav-links { display:none; }
-  .burger { display:flex; }
-  .pricing-grid { grid-template-columns:1fr; }
-  .addons-row { grid-template-columns:1fr 1fr; }
-  .bundles-row { grid-template-columns:1fr; }
-  .order-grid { grid-template-columns:1fr; max-width:420px; }
-  .process { grid-template-columns:1fr 1fr; }
-  #hero,#services,#order { padding-left:22px !important; padding-right:22px !important; }
-  #hero { padding-top:110px; }
-  footer { padding:36px 22px; }
-  footer .inner { flex-direction:column; gap:18px; }
-}
-@media(max-width:600px) {
-  .process { grid-template-columns:1fr; }
-  .addons-row { grid-template-columns:1fr 1fr; }
-  .hero-trust { gap:22px; }
+@media(max-width:600px){
+.process{grid-template-columns:1fr}
+.hero-trust{gap:22px}
+.modal-overlay{padding:0}
+.modal-box{border-radius:16px 16px 0 0;max-height:95vh;margin-top:auto}
 }
 </style>
 </head>
 <body>
 
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-text">
+        <h2>Place Your Order</h2>
+        <p>Premium hat cleaning & restoration — OC or mail-in anywhere in the US</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="form-steps">
+      <div class="fstep active" id="fstep-1">1 · Info</div>
+      <div class="fstep" id="fstep-2">2 · Service</div>
+      <div class="fstep" id="fstep-3">3 · Review</div>
+      <div class="fstep" id="fstep-4">4 · Payment</div>
+    </div>
+    <div class="form-body">
+
+      <!-- STEP 1 -->
+      <div class="form-section active" id="fs-1">
+        <div class="field-row">
+          <div class="field"><label>First Name</label><input type="text" id="fname" placeholder="John"></div>
+          <div class="field"><label>Last Name</label><input type="text" id="lname" placeholder="Doe"></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" id="email" placeholder="john@email.com"></div>
+        <div class="field"><label>Phone</label><input type="tel" id="phone" placeholder="(714) 555-0100"></div>
+        <div class="field">
+          <label>Delivery Method</label>
+          <select id="delivery">
+            <option value="">Select method...</option>
+            <option value="mailin">Mail-In (nationwide)</option>
+            <option value="pickup">OC Pickup / Drop-Off</option>
+          </select>
+        </div>
+        <div class="field" id="addr-field" style="display:none">
+          <label>Return Address</label>
+          <input type="text" id="address" placeholder="Street, City, State, ZIP">
+        </div>
+        <div class="field"><label>Special Instructions (optional)</label><textarea id="notes" placeholder="Material type, problem areas, sentimental value..."></textarea></div>
+        <div class="btn-row"><button class="btn-primary" onclick="goStep(2)">Continue →</button></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-section" id="fs-2">
+        <div class="field">
+          <label>How many hats?</label>
+          <select id="hatcount"><option value="1">1 hat</option><option value="2">2 hats</option><option value="3">3 hats</option><option value="4">4 hats</option><option value="5">5+ hats</option></select>
+        </div>
+        <label style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px">Select Service</label>
+        <div class="service-grid">
+          <div class="svc-card" onclick="selectService(this,'Essential Clean',20)"><div class="sname">Essential</div><div class="sprice">$20</div><div class="sdesc">Light clean, deodorize, reshape</div></div>
+          <div class="svc-card" onclick="selectService(this,'Deep Clean + Restore',35)"><div class="sbest">Best Seller</div><div class="sname">Deep Clean</div><div class="sprice">$35</div><div class="sdesc">Full clean, stain treatment, reshape</div></div>
+          <div class="svc-card" onclick="selectService(this,'Restoration+',55)"><div class="sname">Restoration+</div><div class="sprice">$55</div><div class="sdesc">Heavy damage, whitening, rebuild</div></div>
+        </div>
+        <label style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px">Add-Ons</label>
+        <div class="addon-check" onclick="toggleAddon(this,'Water & Stain Protectant',10)"><input type="checkbox"><div class="alabel">Water & Stain Protectant</div><div class="aprice">+$10</div></div>
+        <div class="addon-check" onclick="toggleAddon(this,'Rush Service (48-72 hrs)',15)"><input type="checkbox"><div class="alabel">Rush Service (48–72 hrs)</div><div class="aprice">+$15</div></div>
+        <div class="addon-check" onclick="toggleAddon(this,'OC Pickup / Drop',10)"><input type="checkbox"><div class="alabel">OC Pickup / Drop</div><div class="aprice">+$10</div></div>
+        <div class="addon-check" onclick="toggleAddon(this,'Spot Treatment',8)"><input type="checkbox"><div class="alabel">Spot Treatment</div><div class="aprice">+$8</div></div>
+        <div class="btn-row"><button class="btn-back-form" onclick="goStep(1)">← Back</button><button class="btn-primary" onclick="goStep(3)">Continue →</button></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-section" id="fs-3">
+        <div id="review-content"></div>
+        <div class="btn-row"><button class="btn-back-form" onclick="goStep(2)">← Back</button><button class="btn-gold-form" onclick="goStep(4)">Proceed to Payment →</button></div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="form-section" id="fs-4">
+        <div class="summary-total" style="margin-bottom:18px"><span>Total Due</span><span id="pay-total">$0</span></div>
+        <label style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px">Payment Method</label>
+        <div class="pay-option selected" onclick="selectPay(this,'card')"><input type="radio" name="pay" checked><div><div class="plabel">Credit / Debit Card</div><div class="psub">Visa, Mastercard, Amex — via Square</div></div></div>
+        <div class="pay-option" onclick="selectPay(this,'cashapp')"><input type="radio" name="pay"><div><div class="plabel">Cash App Pay</div><div class="psub">Pay with $CashTag via Square</div></div></div>
+        <div class="pay-option" onclick="selectPay(this,'afterpay')"><input type="radio" name="pay"><div><div class="plabel">Afterpay</div><div class="psub">Split into 4 payments, no interest</div></div></div>
+        <div class="card-fields" id="card-fields">
+          <div class="field"><label>Card Number</label><input type="text" placeholder="4242 4242 4242 4242" maxlength="19" id="cardnum"></div>
+          <div class="field-row">
+            <div class="field"><label>Expiry</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+            <div class="field"><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+          </div>
+          <div class="field"><label>Name on Card</label><input type="text" placeholder="John Doe"></div>
+        </div>
+        <div class="security-note">🔒 Payments processed securely via Square. This is a prototype — no real charges will be made.</div>
+        <div class="btn-row"><button class="btn-back-form" onclick="goStep(3)">← Back</button><button class="btn-gold-form" onclick="submitOrder()">Pay & Place Order</button></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">
-    <svg class="nav-logo-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#9a7a32"/><stop offset="50%" style="stop-color:#e8c97a"/><stop offset="100%" style="stop-color:#9a7a32"/></linearGradient>
-        <linearGradient id="ng2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#f8faff"/><stop offset="100%" style="stop-color:#c8daf5"/></linearGradient>
-      </defs>
-      <rect width="500" height="500" fill="#0b2550" rx="60"/>
-      <path d="M 152,238 L 152,195 C 152,148 170,108 200,88 C 216,78 233,74 250,74 C 267,74 284,78 300,88 C 330,108 348,148 348,195 L 348,238 Z" fill="url(#ng2)"/>
-      <path d="M 152,238 Q 250,250 348,238 L 362,242 Q 250,262 138,242 Z" fill="rgba(150,185,225,0.6)"/>
-      <path d="M 138,242 Q 175,258 250,263 Q 325,258 362,242 L 360,250 Q 322,268 250,273 Q 178,268 140,250 Z" fill="rgba(100,140,200,0.7)"/>
-      <circle cx="250" cy="76" r="9" fill="url(#ng)"/>
-      <g transform="translate(250,188)">
-        <path d="M 0,36 C -6,28 -14,18 -18,6 C -22,-6 -20,-20 -16,-28 C -12,-34 -8,-36 -5,-32 C -3,-28 -3,-18 -3,-8 C -3,4 -2,22 0,36 Z" fill="#1a1a1a"/>
-        <path d="M 0,36 C 6,28 14,18 18,6 C 22,-6 20,-20 16,-28 C 12,-34 8,-36 5,-32 C 3,-28 3,-18 3,-8 C 3,4 2,22 0,36 Z" fill="#1a1a1a"/>
-        <path d="M -3,-32 C -4,-40 -5,-48 -4,-54 C -3,-58 -1,-58 0,-54 C 1,-50 1,-42 0,-34" fill="#1a1a1a"/>
-        <path d="M -7,-28 C -9,-38 -10,-48 -9,-54 C -8,-58 -6,-58 -5,-54 C -4,-50 -3,-40 -4,-30" fill="#1a1a1a"/>
-        <path d="M -11,-22 C -13,-32 -14,-42 -13,-50 C -12,-56 -10,-56 -9,-52 C -8,-46 -7,-36 -8,-26" fill="#1a1a1a"/>
-        <path d="M 3,-32 C 4,-40 5,-48 4,-54 C 3,-58 1,-58 0,-54 C -1,-50 -1,-42 0,-34" fill="#1a1a1a"/>
-        <path d="M 7,-28 C 9,-38 10,-48 9,-54 C 8,-58 6,-58 5,-54 C 4,-50 3,-40 4,-30" fill="#1a1a1a"/>
-        <path d="M 11,-22 C 13,-32 14,-42 13,-50 C 12,-56 10,-56 9,-52 C 8,-46 7,-36 8,-26" fill="#1a1a1a"/>
-        <circle cx="0" cy="-58" r="2.5" fill="url(#ng)" opacity="0.7"/>
-      </g>
-    </svg>
-    <div class="nav-wordmark">
-      <span class="top">Restored</span>
-      <span class="bot">Caps</span>
-    </div>
+  <a class="nav-logo" onclick="scrollTo(0,0)">
+    <div class="nav-wordmark"><span class="top">Restored</span><span class="bot">Caps</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#order">How It Works</a></li>
-    <li><a href="#order" class="nav-cta">Order Now</a></li>
+    <li><a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
+    <li><a onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">How It Works</a></li>
+    <li><a class="nav-cta" onclick="openModal('mailin')">Order Now</a></li>
   </ul>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE DRAWER -->
 <div class="drawer" id="drawer">
-  <a href="#services">Services</a>
-  <a href="#order">How It Works</a>
-  <a href="#order" class="d-cta">Order Now</a>
+  <a onclick="closeDrawer();document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a>
+  <a onclick="closeDrawer();document.getElementById('order').scrollIntoView({behavior:'smooth'})">How It Works</a>
+  <a class="d-cta" onclick="closeDrawer();openModal('mailin')">Order Now</a>
 </div>
 
-<!-- ════ SECTION 1: HERO ════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-lines"></div>
   <div class="hero-content">
     <div class="hero-badge">OC Local · Nationwide Mail-In</div>
-    <h1 class="hero-title">
-      <span class="line-gold">Your Hat.</span>
-      <span class="line-white">Restored.</span>
-    </h1>
-    <p class="hero-sub">
-      Deep cleaning, reshaping, and restoration for caps that matter.
-      Sweat rings, odor, and lost shape — gone.
-    </p>
+    <h1 class="hero-title"><span class="line-gold">Your Hat.</span><span class="line-white">Restored.</span></h1>
+    <p class="hero-sub">Deep cleaning, reshaping, and restoration for caps that matter. Sweat rings, odor, and lost shape — gone.</p>
     <div class="hero-btns">
-      <a href="#order" class="btn btn-gold">Start Your Order</a>
-      <a href="#services" class="btn btn-outline">See Pricing</a>
+      <button class="btn btn-gold" onclick="openModal('mailin')">Start Your Order</button>
+      <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Pricing</button>
     </div>
     <div class="hero-trust">
       <div class="trust-item"><span class="tl">Service</span><span class="tv">Mail-In Nationwide</span></div>
@@ -539,74 +395,52 @@ footer .inner {
   </div>
 </section>
 
-<!-- ════ SECTION 2: SERVICES ════ -->
+<!-- SERVICES -->
 <section id="services">
   <div class="inner">
     <div class="hdr rev">
       <div class="section-chip">Services & Pricing</div>
       <h2 class="section-title">Clean. Restore. <span>Reshape.</span></h2>
-      <p class="section-desc">Every hat is treated with care. Choose the tier that fits your hat's needs.</p>
+      <p class="section-desc">Every hat treated with care. Choose the tier that fits.</p>
     </div>
-
     <div class="pricing-grid rev">
       <div class="pc">
         <div class="pc-name">Essential Clean</div>
-        <div class="pc-tag">Light wear, surface refresh, light odor. Quick turnaround.</div>
+        <div class="pc-tag">Light wear, surface refresh, light odor.</div>
         <div class="pc-price"><sup>$</sup>20</div>
         <div class="pc-div"></div>
-        <ul class="pc-features">
-          <li>Light exterior clean</li>
-          <li>Deodorize treatment</li>
-          <li>Light reshape</li>
-          <li>Best for: light wear, surface refresh</li>
-        </ul>
-        <a href="#order" class="btn btn-blue" style="width:100%;text-align:center">Order Now</a>
+        <ul class="pc-features"><li>Light exterior clean</li><li>Deodorize treatment</li><li>Light reshape</li><li>Best for: light wear</li></ul>
+        <button class="btn btn-blue" style="width:100%;text-align:center;padding:13px" onclick="openModal('mailin','Essential Clean',20)">Order Now</button>
       </div>
-
       <div class="pc featured">
         <div class="pc-badge">Best Seller</div>
         <div class="pc-name">Deep Clean + Restore</div>
-        <div class="pc-tag">The most common job. Sweat rings, odor, structure loss — all handled.</div>
+        <div class="pc-tag">Sweat rings, odor, structure loss — all handled.</div>
         <div class="pc-price"><sup>$</sup>35</div>
         <div class="pc-div"></div>
-        <ul class="pc-features">
-          <li>Sweatband deep clean</li>
-          <li>Stain treatment</li>
-          <li>Full odor removal</li>
-          <li>Crown reshape & restore</li>
-          <li>Best for: daily wear caps</li>
-        </ul>
-        <a href="#order" class="btn btn-gold" style="width:100%;text-align:center">Order Now</a>
+        <ul class="pc-features"><li>Sweatband deep clean</li><li>Stain treatment</li><li>Full odor removal</li><li>Crown reshape & restore</li><li>Best for: daily wear caps</li></ul>
+        <button class="btn btn-gold" style="width:100%;text-align:center;padding:13px" onclick="openModal('mailin','Deep Clean + Restore',35)">Order Now</button>
       </div>
-
       <div class="pc">
         <div class="pc-name">Restoration+</div>
-        <div class="pc-tag">Heavy damage, heavy staining. For hats too good to throw away.</div>
+        <div class="pc-tag">Heavy damage, heavy staining. Too good to throw away.</div>
         <div class="pc-price"><sup>$</sup>55</div>
         <div class="pc-div"></div>
-        <ul class="pc-features">
-          <li>Heavy sweat ring treatment</li>
-          <li>Intense deodorizing</li>
-          <li>Whitening & brightening</li>
-          <li>Full crown & brim rebuild</li>
-          <li>Best for: severely worn hats</li>
-        </ul>
-        <a href="#order" class="btn btn-blue" style="width:100%;text-align:center">Order Now</a>
+        <ul class="pc-features"><li>Heavy sweat ring treatment</li><li>Intense deodorizing</li><li>Whitening & brightening</li><li>Full crown & brim rebuild</li><li>Best for: severely worn hats</li></ul>
+        <button class="btn btn-blue" style="width:100%;text-align:center;padding:13px" onclick="openModal('mailin','Restoration+',55)">Order Now</button>
       </div>
     </div>
-
     <div class="rev">
-      <p style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Add-Ons</p>
+      <p style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Add-Ons</p>
       <div class="addons-row">
-        <div class="addon"><div class="an">Water & Stain Protectant</div><div class="ap">+$10</div></div>
-        <div class="addon"><div class="an">Rush (48–72 hrs)</div><div class="ap">+$15</div></div>
-        <div class="addon"><div class="an">OC Pickup / Drop</div><div class="ap">+$10</div></div>
-        <div class="addon"><div class="an">Spot Treatment</div><div class="ap">+$8</div></div>
+        <div class="addon-item"><div class="an">Water & Stain Protectant</div><div class="ap">+$10</div></div>
+        <div class="addon-item"><div class="an">Rush (48–72 hrs)</div><div class="ap">+$15</div></div>
+        <div class="addon-item"><div class="an">OC Pickup / Drop</div><div class="ap">+$10</div></div>
+        <div class="addon-item"><div class="an">Spot Treatment</div><div class="ap">+$8</div></div>
       </div>
     </div>
-
     <div class="rev">
-      <p style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Bundles — Save More</p>
+      <p style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Bundles — Save More</p>
       <div class="bundles-row">
         <div class="bundle"><div class="bh">2</div><div class="bl">Hats — Deep Clean</div><div class="bp">$65</div></div>
         <div class="bundle bv"><div class="bh">3</div><div class="bl">Hats — Deep Clean</div><div class="bp">$95</div></div>
@@ -616,90 +450,206 @@ footer .inner {
   </div>
 </section>
 
-<!-- ════ SECTION 3: ORDER ════ -->
+<!-- ORDER -->
 <section id="order">
   <div class="inner">
     <div class="hdr rev">
-      <div class="section-chip" style="background:rgba(255,255,255,.1);color:var(--gold)">Get Started</div>
+      <div class="section-chip">Get Started</div>
       <h2 class="section-title">How Do You Want <span>To Order?</span></h2>
       <p class="section-desc">Two ways to get your hats to us. Both are simple.</p>
     </div>
-
     <div class="order-grid rev">
       <div class="order-card">
         <span class="order-icon">✈️</span>
         <h3>Mail-In</h3>
         <p>Available anywhere in the US. Ship your hats to us, we clean and ship back with tracking.</p>
-        <a href="#" class="btn btn-gold">Start Mail-In Order</a>
+        <button class="btn btn-gold" onclick="openModal('mailin')">Start Mail-In Order</button>
       </div>
       <div class="order-card">
         <span class="order-icon">📍</span>
         <h3>OC Pickup</h3>
         <p>Orange County locals — schedule a pickup or drop-off on our routes through OC.</p>
-        <a href="#" class="btn btn-outline">Schedule Pickup</a>
+        <button class="btn btn-outline" onclick="openModal('pickup')">Schedule OC Pickup</button>
       </div>
     </div>
-
-    <!-- How it works -->
-    <p class="rev" style="text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;opacity:.8">How It Works</p>
     <div class="process rev">
-      <div class="step"><div class="step-num">01</div><h4>Choose</h4><p>Pick your service tier and any add-ons at checkout</p></div>
-      <div class="step"><div class="step-num">02</div><h4>Ship or Drop</h4><p>Mail your hats in or schedule an OC pickup</p></div>
+      <div class="step"><div class="step-num">01</div><h4>Choose</h4><p>Pick your service and add-ons at checkout</p></div>
+      <div class="step"><div class="step-num">02</div><h4>Ship or Drop</h4><p>Mail your hats or schedule an OC pickup</p></div>
       <div class="step"><div class="step-num">03</div><h4>We Restore</h4><p>Cleaned, reshaped, and treated with care</p></div>
       <div class="step"><div class="step-num">04</div><h4>Delivered</h4><p>Shipped back with tracking or dropped off fresh</p></div>
     </div>
-
-    <!-- Mini FAQ -->
     <div class="faq-mini rev">
-      <div class="fi"><div class="fq">Do you clean all hat types? <span class="fp">+</span></div><div class="fa">We clean most caps and hats. Some delicate or vintage materials may need an evaluation first.</div></div>
-      <div class="fi"><div class="fq">Can you remove sweat rings? <span class="fp">+</span></div><div class="fa">In most cases yes — especially with Deep Clean or Restoration+. Results vary by fabric, dye, and prior damage.</div></div>
-      <div class="fi"><div class="fq">What's your turnaround time? <span class="fp">+</span></div><div class="fa">Standard is 3–7 business days after arrival. Rush (48–72 hrs) available for +$15.</div></div>
-      <div class="fi"><div class="fq">Do you offer OC pickup? <span class="fp">+</span></div><div class="fa">Yes — scheduled routes covering Santa Ana, Costa Mesa, Irvine, Huntington Beach, Tustin, and surrounding areas.</div></div>
+      <div class="fi"><div class="fq">Do you clean all hat types?<span class="fp">+</span></div><div class="fa">We clean most caps and hats. Some delicate or vintage materials may need an evaluation first.</div></div>
+      <div class="fi"><div class="fq">Can you remove sweat rings?<span class="fp">+</span></div><div class="fa">In most cases yes — especially with Deep Clean or Restoration+. Results vary by fabric, dye, and prior damage.</div></div>
+      <div class="fi"><div class="fq">What's your turnaround time?<span class="fp">+</span></div><div class="fa">Standard is 3–7 business days after arrival. Rush (48–72 hrs) available for +$15.</div></div>
+      <div class="fi"><div class="fq">Do you offer OC pickup?<span class="fp">+</span></div><div class="fa">Yes — scheduled routes covering Santa Ana, Costa Mesa, Irvine, Huntington Beach, Tustin, and surrounding areas.</div></div>
     </div>
-
-    <!-- Final CTA -->
     <div class="final-cta rev">
       <span class="fc-label">Ready to restore?</span>
       <h3>Your Hat Deserves Better.</h3>
       <p>Book online and have your caps back looking fresh in days. God first — quality always.</p>
       <div class="cta-btns">
-        <a href="#" class="btn btn-gold">Start Mail-In Order</a>
-        <a href="#" class="btn btn-outline">Schedule OC Pickup</a>
+        <button class="btn btn-gold" onclick="openModal('mailin')">Start Mail-In Order</button>
+        <button class="btn btn-outline" onclick="openModal('pickup')">Schedule OC Pickup</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="inner">
-    <div class="f-logo"><span class="ft">Restored</span><span class="fb">Caps</span></div>
+    <div class="f-logo"><span class="ft">Restored</span><span class="fb2">Caps</span></div>
     <ul class="f-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#order">Order</a></li>
-      <li><a href="#order">How It Works</a></li>
+      <li><a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
+      <li><a onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order</a></li>
       <li><a href="mailto:hello@restoredcaps.com">Contact</a></li>
     </ul>
     <div class="f-copy">Orange County, CA · Nationwide</div>
   </div>
   <div class="f-bottom">
-    <ul class="f-policy">
-      <li><a href="#">Shipping Policy</a></li>
-      <li><a href="#">Refund Policy</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-    </ul>
+    <ul class="f-policy"><li><a href="#">Shipping Policy</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Privacy Policy</a></li></ul>
     <div class="f-copy">© 2025 Restored Caps. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-var nav=document.getElementById('nav'),burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>50)});
-burger.addEventListener('click',function(){burger.classList.toggle('on');drawer.classList.toggle('on');document.body.style.overflow=drawer.classList.contains('on')?'hidden':''});
-drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('on');drawer.classList.remove('on');document.body.style.overflow=''})});
+var orderData={service:'',servicePrice:0,addons:[],addonTotal:0};
+var orders=[];
+
+function openModal(delivery,service,price){
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(delivery){var d=document.getElementById('delivery');if(d)d.value=delivery;document.getElementById('addr-field').style.display=delivery?'block':'none'}
+  if(service&&price){
+    orderData.service=service;orderData.servicePrice=price;
+    document.querySelectorAll('.svc-card').forEach(function(c){c.classList.remove('selected');if(c.querySelector('.sname').textContent===service.replace(' + Restore','').replace('Essential Clean','Essential'))c.classList.add('selected')});
+    goStep(2);
+  } else {
+    resetForm();goStep(1);
+  }
+  document.getElementById('modal-box').scrollTop=0;
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+
+function resetForm(){
+  orderData={service:'',servicePrice:0,addons:[],addonTotal:0};
+  document.querySelectorAll('.svc-card').forEach(function(c){c.classList.remove('selected')});
+  document.querySelectorAll('.addon-check').forEach(function(c){c.classList.remove('checked');c.querySelector('input').checked=false});
+  ['fname','lname','email','phone','notes','address','cardnum'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+  var d=document.getElementById('delivery');if(d)d.value='';
+}
+
+function showToast(msg,type){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(type?' '+type:'');t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show')},3200);
+}
+
+document.getElementById('delivery').addEventListener('change',function(){
+  document.getElementById('addr-field').style.display=this.value?'block':'none';
+});
+
+function goStep(n){
+  if(n===2){var fn=document.getElementById('fname').value.trim(),em=document.getElementById('email').value.trim(),dv=document.getElementById('delivery').value;if(!fn||!em||!dv){showToast('Please fill in all required fields');return}}
+  if(n===3){if(!orderData.service){showToast('Please select a service');return}renderReview()}
+  if(n===4){document.getElementById('pay-total').textContent='$'+calcTotal()}
+  document.querySelectorAll('.form-section').forEach(function(el){el.classList.remove('active')});
+  document.getElementById('fs-'+n).classList.add('active');
+  document.querySelectorAll('.fstep').forEach(function(el,i){el.classList.remove('active','done');if(i+1<n)el.classList.add('done');if(i+1===n)el.classList.add('active')});
+  document.getElementById('modal-box').scrollTop=0;
+}
+
+function selectService(el,name,price){
+  document.querySelectorAll('.svc-card').forEach(function(c){c.classList.remove('selected')});
+  el.classList.add('selected');orderData.service=name;orderData.servicePrice=price;
+}
+
+function toggleAddon(el,name,price){
+  el.classList.toggle('checked');
+  var cb=el.querySelector('input[type=checkbox]');cb.checked=!cb.checked;
+  if(cb.checked){orderData.addons.push({name:name,price:price});orderData.addonTotal+=price}
+  else{orderData.addons=orderData.addons.filter(function(a){return a.name!==name});orderData.addonTotal-=price}
+}
+
+function calcTotal(){
+  var hats=parseInt(document.getElementById('hatcount').value)||1;
+  return(orderData.servicePrice*hats)+orderData.addonTotal;
+}
+
+function renderReview(){
+  var hats=parseInt(document.getElementById('hatcount').value)||1;
+  var base=orderData.servicePrice*hats,total=base+orderData.addonTotal;
+  var html='<div style="margin-bottom:14px">';
+  html+='<div class="summary-row"><span class="sl">Customer</span><span class="sv">'+document.getElementById('fname').value+' '+document.getElementById('lname').value+'</span></div>';
+  html+='<div class="summary-row"><span class="sl">Email</span><span class="sv">'+document.getElementById('email').value+'</span></div>';
+  html+='<div class="summary-row"><span class="sl">Delivery</span><span class="sv">'+(document.getElementById('delivery').value==='pickup'?'OC Pickup':'Mail-In')+'</span></div>';
+  html+='<div class="summary-row"><span class="sl">Service</span><span class="sv">'+orderData.service+' × '+hats+'</span></div>';
+  html+='<div class="summary-row"><span class="sl">Service Cost</span><span class="sv">$'+base+'</span></div>';
+  orderData.addons.forEach(function(a){html+='<div class="summary-row"><span class="sl">'+a.name+'</span><span class="sv">+$'+a.price+'</span></div>'});
+  if(document.getElementById('notes').value)html+='<div class="summary-row"><span class="sl">Notes</span><span class="sv" style="max-width:240px;text-align:right;font-size:.78rem">'+document.getElementById('notes').value+'</span></div>';
+  html+='</div>';
+  html+='<div class="summary-total"><span>Total</span><span>$'+total+'</span></div>';
+  document.getElementById('review-content').innerHTML=html;
+}
+
+function selectPay(el,type){
+  document.querySelectorAll('.pay-option').forEach(function(p){p.classList.remove('selected');p.querySelector('input').checked=false});
+  el.classList.add('selected');el.querySelector('input').checked=true;
+  document.getElementById('card-fields').style.display=(type==='card')?'block':'none';
+}
+
+function submitOrder(){
+  var cardSelected=document.querySelector('.pay-option.selected .plabel').textContent==='Credit / Debit Card';
+  if(cardSelected){var cn=document.getElementById('cardnum').value.replace(/\s/g,'');if(cn.length<12){showToast('Please enter a valid card number');return}}
+  var id='RC-2025-'+String(orders.length+1).padStart(3,'0');
+  var newOrder={id:id,name:document.getElementById('fname').value+' '+document.getElementById('lname').value,service:orderData.service,hats:parseInt(document.getElementById('hatcount').value)||1,total:calcTotal(),delivery:document.getElementById('delivery').value,status:'received'};
+  orders.push(newOrder);
+  showSuccessModal(newOrder);
+  showToast('Order placed! Check your email for confirmation.','success');
+}
+
+function showSuccessModal(o){
+  var steps=['Received','Cleaning','Quality','Ready','Shipped','Delivered'];
+  var dots=steps.map(function(s,i){var cls=i===0?'active':'';return'<div class="ts '+cls+'"><div class="ts-dot">'+(i===0?'1':(i+1))+'</div><div class="ts-label">'+s+'</div></div>'}).join('');
+  document.getElementById('modal-box').innerHTML=
+    '<div class="modal-header"><div class="modal-header-text"><h2>Order Confirmed!</h2><p>You\'re all set — your hat is in good hands.</p></div><button class="modal-close" onclick="closeModal()">✕</button></div>'
+    +'<div class="success-wrap">'
+    +'<div class="success-icon-big">✓</div>'
+    +'<h2>Thank You, '+o.name.split(' ')[0]+'!</h2>'
+    +'<p style="color:var(--muted);font-size:.85rem;margin:8px 0 4px">Your order ID</p>'
+    +'<div class="order-id">'+o.id+'</div>'
+    +'<div class="track-mini-steps">'+dots+'</div>'
+    +'<div class="summary-row"><span class="sl">Service</span><span class="sv">'+o.service+'</span></div>'
+    +'<div class="summary-row"><span class="sl">Hats</span><span class="sv">'+o.hats+'</span></div>'
+    +'<div class="summary-row"><span class="sl">Total Paid</span><span class="sv" style="color:var(--green)">$'+o.total+'</span></div>'
+    +'<div class="summary-row" style="margin-bottom:24px"><span class="sl">Delivery</span><span class="sv">'+(o.delivery==='pickup'?'OC Pickup':'Mail-In')+'</span></div>'
+    +'<p style="font-size:.8rem;color:var(--muted);margin-bottom:20px">A confirmation email has been sent. Save your order ID to track your hat\'s progress.</p>'
+    +'<div style="display:flex;gap:10px"><button class="btn-primary" onclick="closeModal();resetForm()" style="flex:1">Done</button><button class="btn-back-form" onclick="closeModal();document.getElementById(\'modal-box\').innerHTML=\'\';location.reload()" style="flex-shrink:0">New Order</button></div>'
+    +'</div>';
+}
+
+/* Nav scroll */
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>50)});
+
+/* Burger */
+function closeDrawer(){document.getElementById('burger').classList.remove('on');document.getElementById('drawer').classList.remove('on');document.body.style.overflow=''}
+document.getElementById('burger').addEventListener('click',function(){this.classList.toggle('on');document.getElementById('drawer').classList.toggle('on');document.body.style.overflow=document.getElementById('drawer').classList.contains('on')?'hidden':''});
+
+/* FAQ */
 document.querySelectorAll('.fq').forEach(function(q){q.addEventListener('click',function(){var fi=q.parentElement,was=fi.classList.contains('on');document.querySelectorAll('.fi').forEach(function(f){f.classList.remove('on')});if(!was)fi.classList.add('on')})});
+
+/* Scroll reveal */
 var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.1});
 document.querySelectorAll('.rev').forEach(function(el){ob.observe(el)});
+
+/* Card formatting */
+document.getElementById('cardnum').addEventListener('input',function(){var v=this.value.replace(/\D/g,'').substring(0,16);this.value=v.replace(/(.{4})/g,'$1 ').trim()});
 </script>
 </body>
 </html>
