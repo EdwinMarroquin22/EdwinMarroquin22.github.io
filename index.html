@@ -606,14 +606,35 @@ function selectPay(el,type){
   document.getElementById('card-fields').style.display=(type==='card')?'block':'none';
 }
 
-function submitOrder(){
+async function submitOrder(){
   var cardSelected=document.querySelector('.pay-option.selected .plabel').textContent==='Credit / Debit Card';
   if(cardSelected){var cn=document.getElementById('cardnum').value.replace(/\s/g,'');if(cn.length<12){showToast('Please enter a valid card number');return}}
-  var id='RC-2025-'+String(orders.length+1).padStart(3,'0');
-  var newOrder={id:id,name:document.getElementById('fname').value+' '+document.getElementById('lname').value,service:orderData.service,hats:parseInt(document.getElementById('hatcount').value)||1,total:calcTotal(),delivery:document.getElementById('delivery').value,status:'received'};
-  orders.push(newOrder);
-  showSuccessModal(newOrder);
-  showToast('Order placed! Check your email for confirmation.','success');
+  var hats=parseInt(document.getElementById('hatcount').value)||1;
+  var payload={
+    customer_name:document.getElementById('fname').value+' '+document.getElementById('lname').value,
+    customer_email:document.getElementById('email').value,
+    customer_phone:document.getElementById('phone').value,
+    service:orderData.service,
+    hats:hats,
+    addons:orderData.addons.map(function(a){return a.name}),
+    delivery:document.getElementById('delivery').value,
+    address:document.getElementById('address').value||'',
+    notes:document.getElementById('notes').value,
+    total:calcTotal(),
+    payment_status:'pending'
+  };
+  try {
+    var res=await fetch(API+'/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    var data=await res.json();
+    if(data.orderId){
+      showSuccessModal({id:data.orderId,name:payload.customer_name,service:payload.service,hats:payload.hats,total:payload.total,delivery:payload.delivery});
+      showToast('Order placed! Check your email for confirmation.','success');
+    } else {
+      showToast('Something went wrong. Please try again.');
+    }
+  } catch(e){
+    showToast('Connection error. Please try again.');
+  }
 }
 
 function showSuccessModal(o){
